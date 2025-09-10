@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MeowClinic · Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 min-h-screen">
+    <div class="flex">
+        <aside id="sidebar" class="w-64 shrink-0 border-r bg-white"></aside>
+
+        <main class="flex-1 p-6 space-y-6">
+            <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-bold">เวชระเบียน</h1>
+                <div class="space-x-2">
+                    <a href="prescreen.html" class="px-3 py-2 bg-slate-800 text-white rounded-lg text-sm">ประวัติ
+                        Pre-screen</a>
+                    <button id="btnNew" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm">+
+                        เพิ่มข้อมูลเวชระเบียน</button>
+                </div>
+            </div>
+
+            <div class="bg-white border rounded-xl p-4">
+                <div class="flex gap-2 mb-3">
+                    <input id="q" class="input"
+                        placeholder="🔎 ค้นหา: รหัส, ไมโครชิป, ชื่อสัตว์, เจ้าของ, เบอร์โทร, อีเมล">
+                    <button id="btnSearch" class="btn">ค้นหา</button>
+                </div>
+                <div class="overflow-auto">
+                    <table class="w-full text-sm">
+                        <thead class="text-left border-b bg-slate-50">
+                            <tr>
+                                <th class="py-2 px-2">ลำดับ</th>
+                                <th class="py-2 px-2">ชื่อเจ้าของ</th>
+                                <th class="py-2 px-2">โทรศัพท์</th>
+                                <th class="py-2 px-2">อีเมล</th>
+                                <th class="py-2 px-2">ชื่อสัตว์</th>
+                                <th class="py-2 px-2">Pet ID</th>
+                                <th class="py-2 px-2">พันธุ์</th>
+                                <th class="py-2 px-2">สถานะ</th>
+                                <th class="py-2 px-2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rows"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Drawer / Modal -->
+            <dialog id="dlg" class="modal">
+                <form method="dialog" class="modal-box max-w-4xl">
+                    <h3 class="font-semibold text-lg mb-3">ลงทะเบียน</h3>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <div class="font-medium">ข้อมูลเจ้าของ</div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <input id="ownerName" class="col-span-3 input" placeholder="ชื่อ-สกุล">
+                                <input id="ownerPhone" class="col-span-3 input" placeholder="เบอร์โทรศัพท์">
+                                <input id="ownerEmail" class="col-span-3 input" placeholder="อีเมล">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="font-medium">ข้อมูลสัตว์เลี้ยง</div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <input id="petName" class="col-span-3 input" placeholder="ชื่อสัตว์เลี้ยง">
+                                <input id="petSpecies" class="col-span-3 input"
+                                    placeholder="สายพันธุ์ เช่น Golden Retriever">
+                                <select id="petSex" class="input">
+                                    <option value="">-- เพศ --</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                                <input id="petAge" class="input" type="number" min="0" placeholder="อายุ (ปี)">
+                                <input id="petColor" class="input" placeholder="สี">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex justify-end gap-2">
+                        <button class="btn" value="cancel">ยกเลิก</button>
+                        <button id="btnSave" class="px-3 py-2 bg-blue-600 text-white rounded-lg">บันทึก</button>
+                    </div>
+                </form>
+            </dialog>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/medical.js"></script>
+</body>
+
+</html>

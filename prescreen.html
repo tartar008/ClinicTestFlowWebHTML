@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MeowClinic · Pre-screen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 min-h-screen">
+    <div class="flex">
+        <aside id="sidebar" class="w-64 shrink-0 border-r bg-white"></aside>
+
+        <main class="flex-1 p-6 space-y-6">
+            <h1 class="text-2xl font-bold">ประวัติสัตว์เลี้ยง (เลือกเพื่อบันทึก Pre-screen)</h1>
+
+            <div class="bg-white border rounded-xl p-4">
+                <div class="flex gap-2 mb-3">
+                    <input id="q" class="input" placeholder="ค้นหาชื่อสัตว์, เจ้าของ, เบอร์โทร...">
+                    <button id="btnSearch" class="btn">ค้นหา</button>
+                </div>
+                <div class="overflow-auto">
+                    <table class="w-full text-sm">
+                        <thead class="text-left border-b bg-slate-50">
+                            <tr>
+                                <th class="py-2 px-2">ลำดับ</th>
+                                <th class="py-2 px-2">ชื่อสัตว์เลี้ยง</th>
+                                <th class="py-2 px-2">Pet ID</th>
+                                <th class="py-2 px-2">พันธุ์</th>
+                                <th class="py-2 px-2">ชื่อเจ้าของ</th>
+                                <th class="py-2 px-2">โทรศัพท์</th>
+                                <th class="py-2 px-2">อีเมล</th>
+                                <th class="py-2 px-2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rows"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <dialog id="dlg" class="modal">
+                <form method="dialog" class="modal-box max-w-3xl">
+                    <h3 class="font-semibold text-lg mb-3">บันทึก Pre-screen</h3>
+                    <div id="petInfo" class="text-sm text-slate-600 mb-3"></div>
+
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <input id="psTemp" class="input" placeholder="อุณหภูมิ (°C)">
+                        <input id="psBpm" class="input" placeholder="อัตราการเต้นหัวใจ (bpm)">
+                        <input id="psSym" class="md:col-span-2 input" placeholder="อาการเบื้องต้น">
+                        <select id="psEat" class="input">
+                            <option value="">พฤติกรรมกิน/อาหาร</option>
+                            <option>ปกติ</option>
+                            <option>เบื่ออาหาร</option>
+                            <option>อาเจียน</option>
+                        </select>
+                        <select id="psGeneral" class="input">
+                            <option value="">พฤติกรรมทั่วไป</option>
+                            <option>ร่าเริง</option>
+                            <option>ซึม</option>
+                            <option>ก้าวร้าว</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-4 flex justify-end gap-2">
+                        <button class="btn" value="cancel">ยกเลิก</button>
+                        <button id="btnSavePS" class="px-3 py-2 bg-emerald-600 text-white rounded-lg">บันทึก</button>
+                    </div>
+                </form>
+            </dialog>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/prescreen.js"></script>
+</body>
+
+</html>

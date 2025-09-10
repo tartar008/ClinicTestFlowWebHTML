@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MeowClinic · Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 min-h-screen">
+    <div id="app" class="flex">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 shrink-0 border-r bg-white"></aside>
+
+        <!-- Main -->
+        <main class="flex-1 p-6 space-y-6">
+            <h1 class="text-2xl font-bold">Dashboard</h1>
+
+            <section id="stats" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"></section>
+
+            <section class="grid lg:grid-cols-2 gap-6">
+                <div class="bg-white border rounded-xl p-4">
+                    <h2 class="font-semibold mb-3">รายการลงทะเบียนล่าสุด</h2>
+                    <table class="w-full text-sm">
+                        <thead class="text-left border-b">
+                            <tr>
+                                <th class="py-2">สัตว์</th>
+                                <th class="py-2">เจ้าของ</th>
+                                <th class="py-2">สถานะ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="latest-pets"></tbody>
+                    </table>
+                </div>
+
+                <div class="bg-white border rounded-xl p-4">
+                    <h2 class="font-semibold mb-3">การรักษาล่าสุด</h2>
+                    <table class="w-full text-sm">
+                        <thead class="text-left border-b">
+                            <tr>
+                                <th class="py-2">สัตว์</th>
+                                <th class="py-2">การวินิจฉัย</th>
+                                <th class="py-2">วันเวลา</th>
+                            </tr>
+                        </thead>
+                        <tbody id="latest-treatments"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+        (async function () {
+            await window.DB.ready();
+            renderSidebar('dashboard');
+
+            // Stats
+            const db = DB.get();
+            const card = (label, val) => `
+        <div class="bg-white border rounded-xl p-4">
+          <div class="text-slate-500 text-sm">${label}</div>
+          <div class="text-2xl font-bold mt-1">${val}</div>
+        </div>`;
+            document.getElementById('stats').innerHTML = [
+                card('จำนวนสัตว์เลี้ยง', db.pets.length),
+                card('เจ้าของทั้งหมด', db.owners.length),
+                card('ค้าง Pre-screen', db.pets.filter(p => p.status === 'Pre-screen').length),
+                card('บันทึกการรักษา', db.treatments.length),
+            ].join('');
+
+            // Latest pets
+            const petRows = db.pets.slice(-5).reverse().map(p => {
+                const owner = DB.findOwner(p.ownerId)?.name || '-';
+                return `<tr class="border-b last:border-0">
+          <td class="py-2">${p.name} <span class="text-xs text-slate-500">#${p.id}</span></td>
+          <td class="py-2">${owner}</td>
+          <td class="py-2"><span class="px-2 py-0.5 rounded text-xs ${badgeClass(p.status)}">${p.status}</span></td>
+        </tr>`;
+            }).join('');
+            document.getElementById('latest-pets').innerHTML = petRows || `<tr><td class="py-3" colspan="3">ยังไม่มีข้อมูล</td></tr>`;
+
+            // Latest treatments
+            const txRows = db.treatments.slice(-5).reverse().map(t => {
+                const pet = DB.findPet(t.petId);
+                return `<tr class="border-b last:border-0">
+          <td class="py-2">${pet?.name || '-'}</td>
+          <td class="py-2">${t.diagnosis || '-'}</td>
+          <td class="py-2">${fmtDateTime(t.date)}</td>
+        </tr>`;
+            }).join('');
+            document.getElementById('latest-treatments').innerHTML = txRows || `<tr><td class="py-3" colspan="3">ยังไม่มีข้อมูล</td></tr>`;
+        })();
+    </script>
+</body>
+
+</html>

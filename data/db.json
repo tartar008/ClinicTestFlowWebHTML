@@ -1,0 +1,335 @@
+{
+    "owners": [
+        {
+            "id": 1,
+            "name": "Somchai Jaidee",
+            "phone": "0812345678",
+            "email": "somchai@example.com"
+        },
+        {
+            "id": 2,
+            "name": "fareeda mama",
+            "phone": "0819876543",
+            "email": "fadaa@gmail.com"
+        },
+        {
+            "id": 3,
+            "name": "Suda Wong",
+            "phone": "0891234567",
+            "email": "suda@example.com"
+        },
+        {
+            "id": 4,
+            "name": "Abdullah A.",
+            "phone": "0865557890",
+            "email": "abdullah@example.com"
+        },
+        {
+            "id": 5,
+            "name": "Chiranan J.",
+            "phone": "0804640344",
+            "email": "Chiranan9590@gmail.com"
+        },
+        {
+            "id": 6,
+            "name": "Unknown Owner",
+            "phone": "-",
+            "email": "-"
+        }
+    ],
+    "pets": [
+        {
+            "id": 1,
+            "name": "Lucky",
+            "breed": "Golden Retriever",
+            "gender": "Male",
+            "ageYear": 3,
+            "color": "Golden",
+            "vaccines": [
+                "Rabies",
+                "Distemper"
+            ],
+            "allergy": "Pollen",
+            "ownerId": 1,
+            "status": "Pre-Screen"
+        },
+        {
+            "id": 3,
+            "name": "เจ้าข้าวหอม",
+            "breed": "Ragdoll",
+            "gender": "Female",
+            "ageYear": 2,
+            "color": "Seal Point",
+            "ownerId": 2,
+            "status": "Pre-Screen"
+        },
+        {
+            "id": 4,
+            "name": "ไทเกอร์",
+            "breed": "Siamese",
+            "gender": "Male",
+            "ageYear": 4,
+            "color": "Cream",
+            "ownerId": 4,
+            "status": "Pre-Screen"
+        },
+        {
+            "id": 6,
+            "name": "ศรีนวล",
+            "breed": "Siamese",
+            "gender": "Female",
+            "ageYear": 5,
+            "color": "White",
+            "ownerId": 5,
+            "status": "Pre-Screen"
+        },
+        {
+            "id": 2,
+            "name": "kai",
+            "breed": "Ragdoll",
+            "gender": "Male",
+            "ageYear": 1,
+            "color": "Blue Point",
+            "ownerId": 6,
+            "status": "Pre-Screen"
+        },
+        {
+            "id": 5,
+            "name": "meme",
+            "breed": "British Shorthair",
+            "gender": "Female",
+            "ageYear": 2,
+            "color": "Gray",
+            "ownerId": 6,
+            "status": "Pre-Screen"
+        },
+        {
+            "id": 8,
+            "name": "Unknown Pet",
+            "breed": "-",
+            "gender": "Unknown",
+            "ageYear": null,
+            "color": "-",
+            "ownerId": 6,
+            "status": "Pre-Screen"
+        },
+        {
+            "id": 9,
+            "name": "Milo",
+            "breed": "Domestic Shorthair",
+            "gender": "Male",
+            "ageYear": 1,
+            "color": "Brown",
+            "ownerId": 3,
+            "status": "Pre-Screen"
+        },
+        {
+            "id": 10,
+            "name": "Happy",
+            "breed": "Shiba",
+            "gender": "Male",
+            "ageYear": 3,
+            "color": "Red",
+            "ownerId": 1,
+            "status": "Pre-Screen"
+        }
+    ],
+    "prescreens": [
+        {
+            "petId": 1,
+            "date": "2025-08-19T10:00:00",
+            "temperatureC": 38.7,
+            "heartRateBpm": 96,
+            "initialSymptoms": "จาก pre-screen ล่าสุด พบไออ่อน 3 วัน",
+            "behavior": "ปกติ",
+            "skin": "ปกติ",
+            "eyeNose": "ใส",
+            "general": "ร่าเริง"
+        },
+        {
+            "petId": 9,
+            "date": "2025-08-18T14:00:00",
+            "temperatureC": 39.1,
+            "heartRateBpm": 110,
+            "initialSymptoms": "เดินกะเผลกหลังวิ่งชนขอบโต๊ะ",
+            "behavior": "ซึมเล็กน้อย",
+            "skin": "ปกติ",
+            "eyeNose": "ปกติ",
+            "general": "เหนื่อยง่าย"
+        },
+        {
+            "petId": 8,
+            "date": "2025-08-18T10:30:00",
+            "temperatureC": 38.2,
+            "heartRateBpm": 88,
+            "initialSymptoms": "มีอาการซึม เมื่ออาหาร 2 วัน",
+            "behavior": "เงียบผิดปกติ",
+            "skin": "แห้ง",
+            "eyeNose": "ปกติ",
+            "general": "ไม่ค่อยเล่น"
+        }
+    ],
+    "treatments": [
+        {
+            "id": 1,
+            "petId": 10,
+            "date": "2025-08-19T10:00:00",
+            "ownerId": 1,
+            "diagnosis": "หลอดลมอักเสบ",
+            "plan": "ให้ยา Amoxicillin 7 วัน และพัก",
+            "drugItems": [
+                {
+                    "code": "D002",
+                    "name": "Amoxicillin",
+                    "qty": 14,
+                    "unit": "เม็ด"
+                }
+            ],
+            "nextAppointment": "2025-08-26"
+        },
+        {
+            "id": 2,
+            "petId": 9,
+            "date": "2025-08-18T14:00:00",
+            "ownerId": 3,
+            "diagnosis": "กล้ามเนื้ออักเสบจากการกระแทก",
+            "plan": "พัก 3–5 วัน ประคบอุ่น",
+            "drugItems": [
+                {
+                    "code": "D003",
+                    "name": "Ibuprofen",
+                    "qty": 6,
+                    "unit": "เม็ด"
+                }
+            ],
+            "nextAppointment": "2025-10-24"
+        },
+        {
+            "id": 3,
+            "petId": 8,
+            "date": "2025-08-18T10:30:00",
+            "ownerId": 6,
+            "diagnosis": "ขนร่วง",
+            "plan": "ให้ยาต้านฮิสตามีนและสังเกตอาการ",
+            "drugItems": [
+                {
+                    "code": "D004",
+                    "name": "Cetirizine",
+                    "qty": 10,
+                    "unit": "เม็ด"
+                }
+            ],
+            "nextAppointment": "2026-01-18"
+        }
+    ],
+    "inventory": [
+        {
+            "id": "D001",
+            "name": "Paracetamol",
+            "type": "ยาแก้ไข้",
+            "receivedDate": "2025-07-01",
+            "expireDate": "2026-06-30",
+            "quantityInit": 100,
+            "quantityRemain": 0,
+            "status": "ไม่เพียงพอ"
+        },
+        {
+            "id": "D002",
+            "name": "Amoxicillin",
+            "type": "ยาปฏิชีวนะ",
+            "receivedDate": "2025-06-01",
+            "expireDate": "2025-12-01",
+            "quantityInit": 50,
+            "quantityRemain": 2,
+            "status": "เพียงพอ"
+        },
+        {
+            "id": "D003",
+            "name": "Ibuprofen",
+            "type": "ยาแก้ปวด",
+            "receivedDate": "2025-03-12",
+            "expireDate": "2026-02-28",
+            "quantityInit": 70,
+            "quantityRemain": 40,
+            "status": "เพียงพอ"
+        },
+        {
+            "id": "D004",
+            "name": "Cetirizine",
+            "type": "ยาต้านฮิสตามีน",
+            "receivedDate": "2025-05-10",
+            "expireDate": "2026-09-05",
+            "quantityInit": 80,
+            "quantityRemain": 55,
+            "status": "เพียงพอ"
+        },
+        {
+            "id": "D005",
+            "name": "Loratadine",
+            "type": "ยาต้านฮิสตามีน",
+            "receivedDate": "2025-02-01",
+            "expireDate": "2026-01-31",
+            "quantityInit": 60,
+            "quantityRemain": 10,
+            "status": "เพียงพอ"
+        }
+    ],
+    "services": [
+        {
+            "id": "E001",
+            "name": "เครื่องอัลตราซาวด์",
+            "type": "อุปกรณ์การแพทย์",
+            "qty": 1,
+            "status": "พร้อมใช้งาน"
+        },
+        {
+            "id": "E002",
+            "name": "เครื่องตรวจเลือด",
+            "type": "อุปกรณ์การแพทย์",
+            "qty": 2,
+            "status": "พร้อมใช้งาน"
+        },
+        {
+            "id": "E003",
+            "name": "เครื่องพ่นยาสลบ",
+            "type": "อุปกรณ์การแพทย์",
+            "qty": 1,
+            "status": "พร้อมใช้งาน"
+        },
+        {
+            "id": "E004",
+            "name": "อุปกรณ์เครื่องผ่าตัดเบื้องต้น",
+            "type": "อุปกรณ์การแพทย์",
+            "qty": 2,
+            "status": "พร้อมใช้งาน"
+        },
+        {
+            "id": "E005",
+            "name": "เครื่องผลิตออกซิเจน",
+            "type": "อุปกรณ์การแพทย์",
+            "qty": 1,
+            "status": "พร้อมใช้งาน"
+        },
+        {
+            "id": "E006",
+            "name": "เตียงฉุกเฉิน",
+            "type": "อุปกรณ์การแพทย์",
+            "qty": 6,
+            "status": "พร้อมใช้งาน"
+        },
+        {
+            "id": "E007",
+            "name": "ชุดเครื่องมือผ่าตัดน้ำเกลือ",
+            "type": "อุปกรณ์การแพทย์",
+            "qty": 2,
+            "status": "พร้อมใช้งาน"
+        },
+        {
+            "id": "E008",
+            "name": "เครื่องดูดเสมหะ",
+            "type": "อุปกรณ์การแพทย์",
+            "qty": 1,
+            "status": "พร้อมใช้งาน"
+        }
+    ]
+}
